@@ -1,9 +1,9 @@
 public class Jellybean extends Sweets {
     private int size;
 
-    protected Jellybean() {
+    protected Jellybean(int size) {
         super("Жевательная конфета", 20, 10);
-        this.size = 5;
+        this.size = size;
     }
 
     @Override

@@ -1,9 +1,9 @@
 public class Marmalade extends Sweets {
     private String color;
 
-    protected Marmalade() {
+    protected Marmalade(String color) {
         super("Мармеладка", 10, 5);
-        this.color = "Красный";
+        this.color = color;
     }
 
     @Override

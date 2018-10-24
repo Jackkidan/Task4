@@ -1,13 +1,17 @@
 
 public class Solution {
     public static void main(String[] args) {
-        Factory factory = new Factory();
-        Sweets chocolate = factory.createSweet(Factory.SweetType.CHOCOLATE);
-        Sweets marmalade = factory.createSweet(Factory.SweetType.MARMALADE);
-        Sweets jellybean = factory.createSweet(Factory.SweetType.JELLYBEAN);
+        ChocoFactory chocoFactory = new ChocoFactory();
+        ChocoAndJellyFactory chocoAndJellyFactory = new ChocoAndJellyFactory();
 
-        System.out.println(chocolate.getName()+" "+chocolate.getUnique());
 
+        Sweets chocolate1 = chocoFactory.createSweet(SweetFactory.SweetType.CHOCOLATE);
+        Sweets chocolate2 = chocoAndJellyFactory.createSweet(SweetFactory.SweetType.CHOCOLATE);
+        Sweets jellybean1 = chocoAndJellyFactory.createSweet(SweetFactory.SweetType.JELLYBEAN);
+
+        System.out.println(chocolate1.getName());
+        System.out.println(chocolate2.getName());
+        System.out.println(jellybean1.getName());
 
     }
 }
