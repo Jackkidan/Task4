@@ -2,9 +2,9 @@ public class Chocolate extends Sweets {
 
     private int kkal;
 
-    protected Chocolate(int kkal) {
-        super("Шоколадка", 50, 20);
-        this.kkal = kkal;
+    protected Chocolate(String name,int weight) {
+        super(name, weight);
+        this.kkal = 550;
     }
 
     @Override

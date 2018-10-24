@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Gift {
 
@@ -8,30 +9,23 @@ public class Gift {
     private double totalWeight;
     private double totalPrice;
 
-    public String showGift() {
-        totalPrice = 0;
-        totalWeight = 0;
-        String candys = "";
+    public void showGift() {
+
         for (Sweets f : gift) {
-            totalPrice += f.getPrice();
-            totalWeight += f.getWeight();
-            candys += f.getName() + "\n";
+            System.out.println(f.getName());
         }
-        return candys;
     }
 
-    public String getTotalPrice() {
-        String price = "" + totalPrice;
-        return price;
-    }
 
     public String getTotalWeight() {
         String weight = "" + totalWeight;
         return weight;
     }
 
-    public void addCandy(Sweets sweet) {
-        gift.add(sweet);
+    public void addCandy(Sweets sweet, Predicate<Sweets> predicate) {
+        if (predicate.test(sweet)){
+            gift.add(sweet);
+        }
     }
 
     public void removeCandy(String sweet) {

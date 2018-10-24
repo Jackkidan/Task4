@@ -1,11 +1,8 @@
 public class ChocoFactory implements SweetFactory {
     @Override
-    public Sweets createSweet(SweetType type) {
+    public Sweets createSweet(String name, int weight) {
+        Chocolate chocolate = new Chocolate(name, weight);
+        return chocolate;
 
-        switch (type) {
-            case CHOCOLATE :
-            return new Chocolate(550);
-            default: return null;
-        }
     }
 }
