@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class Gift implements CurrencyExchange {
+public class Gift implements Converter {
 
     private List<Sweets> gift = new ArrayList();
 
@@ -50,7 +50,7 @@ public class Gift implements CurrencyExchange {
     }
 
     @Override
-    public void exchange(double cost) {
+    public void converter(double cost) {
         double convertToEUR =
                 BigDecimal.valueOf(cost / 70).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue();
         System.out.println(convertToEUR + " Евро");

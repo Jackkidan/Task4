@@ -63,7 +63,7 @@ public class Solution {
         System.out.println("---------------------------");
         // Конвертер в евро
 
-        gift.exchange(marma1.getCost());
+        gift.converter(marma1.getCost());
 
 
     }
