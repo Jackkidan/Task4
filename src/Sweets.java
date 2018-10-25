@@ -1,10 +1,10 @@
 public abstract class Sweets{
     private String name;
-    private double weight;
+    private double cost;
 
-    protected Sweets(String name, double weight) {
+    protected Sweets(String name, double cost) {
         this.name = name;
-        this.weight = weight;
+        this.cost = cost;
     }
 
 
@@ -12,8 +12,8 @@ public abstract class Sweets{
         return name;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getCost() {
+        return cost;
     }
 
     //Для получения уникального параметра

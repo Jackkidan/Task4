@@ -2,8 +2,8 @@ public class Chocolate extends Sweets {
 
     private int kkal;
 
-    protected Chocolate(String name,int weight) {
-        super(name, weight);
+    protected Chocolate(String name,int cost) {
+        super(name, cost);
         this.kkal = 550;
     }
 

@@ -1,8 +1,8 @@
 public class Jellybean extends Sweets {
     private int size;
 
-    protected Jellybean(String name, int weight) {
-        super(name, weight);
+    protected Jellybean(String name, int cost) {
+        super(name, cost);
         this.size = 15;
     }
 

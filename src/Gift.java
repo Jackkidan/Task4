@@ -1,13 +1,12 @@
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class Gift {
+public class Gift implements CurrencyExchange {
 
     private List<Sweets> gift = new ArrayList();
-    private double totalWeight;
-    private double totalPrice;
 
     public void showGift() {
 
@@ -16,14 +15,18 @@ public class Gift {
         }
     }
 
-
-    public String getTotalWeight() {
-        String weight = "" + totalWeight;
-        return weight;
+    public void chocolateCount() {
+        long sweetCount = gift.stream().filter((p) -> p instanceof Chocolate).count();
+        System.out.println("Количество шоколадок в подарке: " + sweetCount);
     }
 
+    public void getSweetClass() {
+        gift.stream().forEach(sweets -> System.out.println(sweets.getName() + " " + sweets.getClass()));
+    }
+
+
     public void addCandy(Sweets sweet, Predicate<Sweets> predicate) {
-        if (predicate.test(sweet)){
+        if (predicate.test(sweet)) {
             gift.add(sweet);
         }
     }
@@ -44,5 +47,12 @@ public class Gift {
                 break;
             }
         }
+    }
+
+    @Override
+    public void exchange(double cost) {
+        double convertToEUR =
+                BigDecimal.valueOf(cost / 70).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue();
+        System.out.println(convertToEUR + " Евро");
     }
 }
