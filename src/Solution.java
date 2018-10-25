@@ -67,8 +67,8 @@ public class Solution {
         // Конвертер
         Function<Double, String> convert = x->
                 BigDecimal.valueOf(x / 60).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue() + " Долларов";
-        System.out.println(convert.apply(choco1.getCost()));
 
+        gift.getTotalCostWithConverter(convert, choco1);
         gift.converterEUR(marma1.getCost());
         gift.converterAll(choco1.getCost(), 30);
 

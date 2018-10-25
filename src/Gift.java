@@ -49,6 +49,9 @@ public class Gift {
             }
         }
     }
+    public void getTotalCostWithConverter(Function<Double, String> converter, Sweets sweet) {
+                System.out.println(converter.apply(sweet.getCost()));
+    }
 
 
     public void converterEUR(double cost) {
@@ -56,7 +59,6 @@ public class Gift {
                 BigDecimal.valueOf(cost / 80).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue() + " Евро";
         System.out.println(convert.apply(cost));
     }
-
 
     public void converterAll(double cost, double rate) {
         Function<Double, String> convert = x->
