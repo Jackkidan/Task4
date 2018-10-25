@@ -2,9 +2,10 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class Gift implements Converter {
+public class Gift {
 
     private List<Sweets> gift = new ArrayList();
 
@@ -49,10 +50,17 @@ public class Gift implements Converter {
         }
     }
 
-    @Override
-    public void converter(double cost) {
-        double convertToEUR =
-                BigDecimal.valueOf(cost / 70).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue();
-        System.out.println(convertToEUR + " Евро");
+
+    public void converterEUR(double cost) {
+        Function<Double, String> convert = x->
+                BigDecimal.valueOf(cost / 80).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue() + " Евро";
+        System.out.println(convert.apply(cost));
+    }
+
+
+    public void converterAll(double cost, double rate) {
+        Function<Double, String> convert = x->
+                BigDecimal.valueOf(cost / rate).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue() + " Единиц";
+        System.out.println(convert.apply(cost));
     }
 }

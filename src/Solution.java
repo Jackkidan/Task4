@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Solution {
@@ -61,9 +63,14 @@ public class Solution {
         // Вывод класса каждого объекта в подарке
         gift.getSweetClass();
         System.out.println("---------------------------");
-        // Конвертер в евро
 
-        gift.converter(marma1.getCost());
+        // Конвертер
+        Function<Double, String> convert = x->
+                BigDecimal.valueOf(x / 60).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue() + " Долларов";
+        System.out.println(convert.apply(choco1.getCost()));
+
+        gift.converterEUR(marma1.getCost());
+        gift.converterAll(choco1.getCost(), 30);
 
 
     }
