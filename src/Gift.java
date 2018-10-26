@@ -32,6 +32,17 @@ public class Gift {
         }
     }
 
+    public void addOnlyChoco(Sweets sweet) {
+        if (sweet instanceof Chocolate) {
+            gift.add(sweet);
+        }
+    }
+    public void addOnlyJelly(Sweets sweet) {
+        if (sweet instanceof Jellybean) {
+            gift.add(sweet);
+        }
+    }
+
     public void removeCandy(String sweet) {
 
         //Поиск по совпадающему значению из списка. Ошибки быть не может т.к. выпонляется поиск из этого самого списка

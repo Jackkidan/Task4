@@ -40,6 +40,9 @@ public class Solution {
         gift.addCandy(chocolate2, predicate3); // Добавлена не будет
         gift.addCandy(marma1, predicate1); // Добавлена не будет
         gift.addCandy(marma2, predicate2); // добавлена не будет
+        gift.addOnlyJelly(chocolate1); // добавлена не будет
+        gift.addOnlyChoco(chocolate1);
+
 
         System.out.println("---------------------------");
 
