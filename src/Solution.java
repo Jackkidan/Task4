@@ -17,27 +17,29 @@ public class Solution {
             return marmalade;
         };
 
+        /*
         // Еще одна фабрика шоколадок
         SweetFactory chocolateFactory = (name, cost) -> {
             Chocolate chocolate = new Chocolate(name, cost);
             return chocolate;
         };
+        */
 
         Sweets marma1 = marmaladeFactory.createSweet("Мармеладка1", 100);
         Sweets marma2 = marmaladeFactory.createSweet("Мармеладка2", 200);
-        Sweets choco1 = chocolateFactory.createSweet("Шоколадка с фабрики 2", 500);
-        Sweets chocolate1 = chocoFactory.createSweet("Шоколадка", 50);
-        Sweets chocolate2 = chocoFactory.createSweet("Белая шоколадка", 60);
+        Sweets chocolate1 = chocoFactory.createSweet("Шоколадка", 150, Chocolate.ChocolateType.BLACK);
+        Sweets chocolate2 = chocoFactory.createSweet("Белая шоколадка", 40, Chocolate.ChocolateType.WHITE);
         Sweets jellybean1 = jellyFactory.createSweet("Конфетка", 20);
 
         Predicate<Sweets> predicate1 = (s) -> s instanceof Jellybean;
-        Predicate<Sweets> predicate2 = (s) -> s instanceof Chocolate;
+        Predicate<Sweets> predicate2 = (s) -> s instanceof Chocolate&&((Chocolate) s).type== Chocolate.ChocolateType.WHITE ;
         Predicate<Sweets> predicate3 = (s) -> s.getCost() < 50;
 
+        // gift.addCandy(choco1, predicate2);
+
         gift.addCandy(jellybean1, predicate1);
-        gift.addCandy(choco1, predicate2);
-        gift.addCandy(chocolate1, predicate2);
-        gift.addCandy(chocolate2, predicate3); // Добавлена не будет
+        gift.addCandy(chocolate1, predicate2); // Добавлена не будет
+        gift.addCandy(chocolate2, predicate3);
         gift.addCandy(marma1, predicate1); // Добавлена не будет
         gift.addCandy(marma2, predicate2); // добавлена не будет
         gift.addOnlyJelly(chocolate1); // добавлена не будет
@@ -71,9 +73,9 @@ public class Solution {
         Function<Double, String> convert = x->
                 BigDecimal.valueOf(x / 60).setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue() + " Долларов";
 
-        gift.getTotalCostWithConverter(convert, choco1);
+        gift.getTotalCostWithConverter(convert, chocolate1);
         gift.converterEUR(marma1.getCost());
-        gift.converterAll(choco1.getCost(), 30);
+        gift.converterAll(chocolate1.getCost(), 30);
 
 
     }

@@ -1,15 +1,33 @@
 public class Chocolate extends Sweets {
 
-    private int kkal;
+    private String something;
+    Enum type;
 
-    protected Chocolate(String name,int cost) {
+    enum ChocolateType {
+        WHITE("Белый"), BLACK("Темный"), WITHNUTS("С орешками"), OTHER("Другая");
+        private String description;
+        ChocolateType(String description) {
+            this.description = description;
+        }
+
+        public String getDescription() {return description;}
+
+    }
+
+
+    protected Chocolate(String name, int cost) {
         super(name, cost);
-        this.kkal = 550;
+        this.something = "Без параметра";
+
+    }
+
+    protected Chocolate(String name, int cost, Enum type) {
+        super(name, cost);
+        this.type = type;
     }
 
     @Override
     public String getUnique() {
-        return kkal + "kkal";
+        return something;
     }
-
 }
